@@ -27,7 +27,11 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
         env:
-          DB_CLOUD_URL: ${{ secrets.DB_CLOUD_URL }}          
+          DB_CLOUD_URL: ${{ secrets.DB_CLOUD_URL }}
+          DB_CLOUD_USERNAME: ${{ secrets.DB_CLOUD_USERNAME }}
+          DB_CLOUD_PASSWORD: ${{ secrets.DB_CLOUD_PASSWORD }}
+          DB_LOCAL_PASSWORD: ${{ secrets.DB_LOCAL_PASSWORD }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -64,3 +68,4 @@ jobs:
           package: '*.jar'
 
           
+
