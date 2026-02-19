@@ -26,6 +26,8 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install
+        env:
+          DB_CLOUD_URL: ${{ secrets.DB_CLOUD_URL }}          
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -60,4 +62,5 @@ jobs:
           app-name: 'bibflip-api-platform'
           slot-name: 'Production'
           package: '*.jar'
+
           
